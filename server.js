@@ -7,9 +7,10 @@ var database = require('./config/database'); 			// load the database config
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var path    = require("path");
 
 // configuration ===============================================================
-mongoose.connect(database.localUrl); 	// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
+mongoose.connect(database.remoteUrl); 	// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
 
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
@@ -18,6 +19,37 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
+// var engines = require('consolidate');
+
+// api ---------------------------------------------------------------------
+    // get all expenses
+    // app.get('/api/expenses', function (req, res) {
+    //     res.sendFile(path.join(__dirname+'/public/pages/form.html'));
+    // });
+
+    app.get('/index', function (req, res) {
+        res.sendFile(path.join(__dirname+'/public/pages/index.html'));
+    });
+
+    app.get('/form', function (req, res) {
+        res.sendFile(path.join(__dirname+'/public/pages/form.html'));
+    });
+
+    app.get('/notifications', function (req, res) {
+        res.sendFile(path.join(__dirname+'/public/pages/notifications.html'));
+    });
+
+    app.get('/tables', function (req, res) {
+        res.sendFile(path.join(__dirname+'/public/pages/tables.html'));
+    });
+
+    app.get('/morris', function (req, res) {
+        res.sendFile(path.join(__dirname+'/public/pages/morris.html'));
+    });
+
+    app.get('/login', function (req, res) {
+        res.sendFile(path.join(__dirname+'/public/pages/login.html'));
+    });
 
 // routes ======================================================================
 require('./app/routes.js')(app);

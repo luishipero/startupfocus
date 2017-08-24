@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-controller="mainController">
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index">StartUp Focus</a>
+            </div>
+            <!-- /.navbar-header -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">                        
+                        <li>
+                            <a href="/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/form"><i class="fa fa-edit fa-fw"></i> Form</a>
+                        </li>
+                        <li>
+                            <a href="/notifications"><i class="fa fa-comments fa-fw"></i> Comments</a>
+                        </li>
+                        <li>
+                            <a href="/tables"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="/morris"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Expenses Form</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+            <div class="container-fluid">
+        <div class="row">   
+            <!--all the forms -->    
+           <div class="col-sm-6">
+    <div id="signupbox" style=" margin-top:20px" class="mainbox col-sm-10">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div id="costs" class="panel-title">Costs</div>
+            </div>  
+            <div class="panel-body" >
+                <form method="post" action="/api/expenses" target="/pages/form.html">
+            
+                    <form>
+                        <div id="div_id_select" class="form-group required">
+                        </div> 
+                        <div id="div_id_As" class="form-group required">
+                        </div>
+                        <div id="div_management-exp" class="form-group required">
+                            <label for="management-exp" class="control-label col-md-4  requiredField"> Management</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="management-exp" maxlength="30" name="management-exp" placeholder="Management expenses" style="margin-bottom: 10px" type="number" required/>
+                            </div>
+                        </div>
+                        <div id="div_taxes-exp" class="form-group required">
+                            <label for="taxes-exp" class="control-label col-md-4  requiredField">Payroll taxes</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md emailinput form-control" id="taxes-exp" name="taxes-exp" placeholder="Payroll taxes &amp provisions expenses" style="margin-bottom: 10px" type="number" required/>
+                            </div>     
+                        </div>
+                        <div id="div_wsbo-exp" class="form-group required">
+                            <label for="wsbo-exp" class="control-label col-md-4  requiredField">WBSO Discount</label>
+                            <div class="controls col-md-8 "> 
+                                <input class="input-md textinput textInput form-control" id="wsbo-exp" name="wsbo-exp" placeholder="WBSO Discount expenses" style="margin-bottom: 10px" type="number" required/>
+                            </div>
+                        </div>
+                        <div id="div_development-exp" class="form-group required">
+                             <label for="development-exp" class="control-label col-md-4  requiredField"> Development</label>
+                             <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="development-exp" name="development-exp" placeholder="Product development expenses" style="margin-bottom: 10px" type="number" required/>
+                            </div>
+                        </div>
+                        <div id="div_admin-exp" class="form-group required"> 
+                            <label for="admin-exp" class="control-label col-md-4  requiredField"> Admin</label> 
+                            <div class="controls col-md-8 "> 
+                                <input ng-model="formData" class="input-md textinput textInput form-control" id="admin-exp" name="admin-exp" placeholder="Administration expenses" style="margin-bottom: 10px" type="number" required/>
+                            </div>
+                        </div> 
+                        <div id="div_business-exp" class="form-group required">
+                             <label for="business-exp" class="control-label col-md-4  requiredField"> Business</label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="business-exp" name="business-exp" placeholder="Business expenses" style="margin-bottom: 10px" type="number" required/>
+                            </div> 
+                        </div>
+                        <div class="form-group"> 
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <input type="submit" name="Submit" value="Submit" class="btn btn-primary btn btn-info" id="submit-id-signup" />
+                            </div>
+                        </div> 
+                            
+                    </form>
+
+                </form>
+            </div>
+        </div>
+        </div>
+           </div>
+        <div class="col-sm-6">
+            <div id="signupbox" style=" margin-top:20px" class="mainbox col-sm-10">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Income</div>
+                    </div>  
+                    <div class="panel-body" >
+                        <form method="post" action=".">
+                    
+                            <form  class="form-horizontal" method="post" >
+                                <div id="div_id_select" class="form-group required">
+                                </div> 
+                                <div id="div_id_As" class="form-group required">
+                                </div>
+                                <div id="div_revenue-inc" class="form-group required">
+                                    <label for="revenue-inc" class="control-label col-md-4  requiredField"> Revenue</label>
+                                    <div class="controls col-md-8 ">
+                                        <input class="input-md  textinput textInput form-control" id="revenue-inc" maxlength="30" name="username" placeholder="Revenue from product sales" style="margin-bottom: 10px" type="number" />
+                                    </div>
+                                </div>
+                                <div id="div_investment-inc" class="form-group required">
+                                    <label for="investment-inc" class="control-label col-md-4  requiredField">Investments</label>
+                                    <div class="controls col-md-8 ">
+                                        <input class="input-md emailinput form-control" id="investment-inc" name="email" placeholder="Amount of invesment on company" style="margin-bottom: 10px" type="number" />
+                                    </div>     
+                                </div>
+                                <div class="form-group"> 
+                                    <div class="aab controls col-md-4 "></div>
+                                    <div class="controls col-md-8 ">
+                                        <input type="submit" name="Submit" value="Submit" class="btn btn-primary btn btn-info" id="submit-id-signup" />
+                                    </div>
+                                </div> 
+                                    
+                            </form>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="signupbox" style=" margin-top:20px" class="mainbox col-sm-10">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Comments</div>
+                    </div>  
+                    <div class="panel-body" >
+                        <form method="post" action=".">
+                            <input type='hidden'/>
+                    
+                            <!-- <form  class="form-horizontal" method="post" > -->
+                                <input type='hidden'/>
+                                <div id="div_id_select" class="form-group required">
+                                </div> 
+                                <div id="div_id_As" class="form-group required">
+                                </div>
+                                <div id="div_revenue-inc" class="form-group required">
+                                    <label for="revenue-inc" class="control-label col-md-4  requiredField">General Comments</label>
+                                    <div class="controls col-md-8 ">
+                                        <textarea placeholder="Write month comments about issues, roadblocks or achievements" 
+                                        class="form-control input-md  textinput textInput form-control" rows="5"  style="margin-bottom: 10px; resize:vertical;" type="text" id="comment"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group"> 
+                                    <div class="aab controls col-md-4 "></div>
+                                    <div class="controls col-md-8 ">
+                                        <input type="submit" name="Submit" value="Submit" class="btn btn-primary btn btn-info" id="submit-id-signup" />
+                                    </div>
+                                </div> 
+                                    
+                            <!-- </form> -->
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+    
+
+
+
+
+
+</div>            
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
