@@ -14,5 +14,9 @@
   },
   "devDependencies": {
     "node-hot-loader": "^0.3.9"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js"
 }
