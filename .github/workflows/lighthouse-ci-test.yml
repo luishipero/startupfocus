@@ -18,10 +18,11 @@ jobs:
           temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 
       - name: check dir contents
+        id: dir-content
         shell: bash
         run: |
           cd ${{ steps.my-lhci.outputs.resultsPath }}
-          tar -czvf my_directory.gz .lighthouseci/
+          tar -czvf my_directory.gz .
           
 
       - name: Upload Lighthouse reports
