@@ -21,6 +21,7 @@ jobs:
         shell: bash
         run: |
           ls ${{ steps.my-lhci.outputs.resultsPath }}
+          tar -czvf ${{ steps.my-lhci.outputs.resultsPath }}.gz my_directory
           
 
       - name: Upload Lighthouse reports
@@ -29,4 +30,4 @@ jobs:
           # The name the artifact will have in the Actions "Artifacts" section
           name: lighthouse-reports
           # Must point to the same path defined in `output_path`
-          path: ${{ steps.my-lhci.outputs.resultsPath }}/*
+          path: ./my_directory
