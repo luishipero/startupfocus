@@ -20,8 +20,8 @@ jobs:
       - name: check dir contents
         shell: bash
         run: |
-          ls ${{ steps.my-lhci.outputs.resultsPath }}
-          tar -czvf my_directory.gz ${{ steps.my-lhci.outputs.resultsPath }}
+          cd ${{ steps.my-lhci.outputs.resultsPath }}
+          tar -czvf my_directory.gz .lighthouseci
           
 
       - name: Upload Lighthouse reports
