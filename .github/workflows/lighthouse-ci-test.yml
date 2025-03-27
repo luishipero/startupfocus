@@ -22,7 +22,9 @@ jobs:
         shell: bash
         run: |
           cd ${{ steps.my-lhci.outputs.resultsPath }}
-          tar -czvf my_directory.gz .
+          cd ..
+          tar -czvf my_directory.gz .lighthouseci
+          echo "my_var=some_value" >> $GITHUB_OUTPUT
           
 
       - name: Upload Lighthouse reports
@@ -31,4 +33,4 @@ jobs:
           # The name the artifact will have in the Actions "Artifacts" section
           name: lighthouse-reports
           # Must point to the same path defined in `output_path`
-          path: my_directory.gz
+          path: /home/runner/work/startupfocus/startupfocus/
