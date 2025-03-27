@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
           cd ${{ steps.my-lhci.outputs.resultsPath }}
-          tar -czvf my_directory.gz .lighthouseci
+          tar -czvf my_directory.gz .lighthouseci/
           
 
       - name: Upload Lighthouse reports
