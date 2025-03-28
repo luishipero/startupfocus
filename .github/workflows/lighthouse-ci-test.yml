@@ -30,4 +30,4 @@ jobs:
           # The name the artifact will have in the Actions "Artifacts" section
           name: lighthouse-reports
           # Must point to the same path defined in `output_path`
-          path: /home/runner/work/startupfocus/startupfocus/.lighthouseci
+          path: ./lhci/
