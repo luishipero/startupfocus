@@ -22,7 +22,7 @@ jobs:
         shell: bash
         run: |
           cp -r ${{ steps.my-lhci.outputs.resultsPath }} ./lhci/
-          ls 
+          ls ./lhci/
 
       - name: Upload Lighthouse reports
         uses: actions/upload-artifact@v4
@@ -30,4 +30,4 @@ jobs:
           # The name the artifact will have in the Actions "Artifacts" section
           name: lighthouse-reports
           # Must point to the same path defined in `output_path`
-          path: lhci/
+          path: ${{ steps.my-lhci.outputs.resultsPath }}/**
