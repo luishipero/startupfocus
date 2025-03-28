@@ -15,7 +15,7 @@ jobs:
             https://www.mini.de/de-de/sl/fahrzeugsuche#/results
           budgetPath: ../budget.json # test performance budgets
           # uploadArtifacts: true # save results as an action artifacts
-          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+          # temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 
       - name: check dir contents
         id: dir-content
@@ -30,4 +30,4 @@ jobs:
           # The name the artifact will have in the Actions "Artifacts" section
           name: lighthouse-reports
           # Must point to the same path defined in `output_path`
-          path: ./lhci/
+          path: ${{ steps.my-lhci.outputs.resultsPath }}/**
