@@ -21,11 +21,8 @@ jobs:
         id: dir-content
         shell: bash
         run: |
-          cd ${{ steps.my-lhci.outputs.resultsPath }}
-          cd ..
-          cp -r .lighthouseci/ ../lhci/
-          echo "my_var=some_value" >> $GITHUB_OUTPUT
-          
+          cp -r ${{ steps.my-lhci.outputs.resultsPath }} ./lhci/
+          ls 
 
       - name: Upload Lighthouse reports
         uses: actions/upload-artifact@v4
@@ -33,4 +30,4 @@ jobs:
           # The name the artifact will have in the Actions "Artifacts" section
           name: lighthouse-reports
           # Must point to the same path defined in `output_path`
-          path: ${{ steps.my-lhci.outputs.resultsPath }}/lhci
+          path: lhci/
