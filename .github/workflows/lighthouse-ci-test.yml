@@ -23,7 +23,7 @@ jobs:
         run: |
           cd ${{ steps.my-lhci.outputs.resultsPath }}
           cd ..
-          cp .lighthouseci/ ${{ steps.my-lhci.outputs.resultsPath }}/lhci/
+          cp -r .lighthouseci/ ${{ steps.my-lhci.outputs.resultsPath }}/lhci/
           echo "my_var=some_value" >> $GITHUB_OUTPUT
           
 
